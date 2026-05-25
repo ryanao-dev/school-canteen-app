@@ -27,7 +27,10 @@ export function useCart() {
 
       if (existingIndex >= 0) {
         const newItems = [...prev];
-        newItems[existingIndex].quantity += quantity;
+        newItems[existingIndex] = {
+          ...newItems[existingIndex],
+          quantity: newItems[existingIndex].quantity + quantity
+        };
         return newItems;
       }
 

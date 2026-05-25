@@ -12,7 +12,7 @@ export function BottomNav({
   onNavigate,
   cartCount
 }: BottomNavProps) {
-  const navItems = [
+  const navItems: { id: PageType; label: string; icon: React.FC<any>; badge?: number }[] = [
   {
     id: 'menu',
     label: 'Menu',
@@ -33,8 +33,7 @@ export function BottomNav({
     id: 'history',
     label: 'History',
     icon: ListIcon
-  }] as
-  const;
+  }];
   // Don't show bottom nav on detail page to keep focus on the item
   if (currentPage === 'detail') return null;
   return (

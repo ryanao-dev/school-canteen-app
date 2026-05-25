@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useCart } from './hooks/useCart';
-import { Order } from './data/mockData';
+import { MenuItem, Order } from './data/mockData';
 import { fetchMenuItem } from './data/api';
 import { BottomNav, PageType } from './components/BottomNav';
 import { MenuPage } from './pages/MenuPage';
@@ -11,14 +11,16 @@ import { OrderTrackingPage } from './pages/OrderTrackingPage';
 import { OrderHistoryPage } from './pages/OrderHistoryPage';
 export function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('menu');
-  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
-  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [activeOrder, setActiveOrder] = useState<Order | null>(null);
   const cart = useCart();
   const handleItemSelect = (id: string) => {
-    setSelectedItemId(id);
-    fetchMenuItem(id).then(setSelectedItem).catch(console.error);
-    setCurrentPage('detail');
+    fetchMenuItem(id)
+      .then((item) => {
+        setSelectedItem(item);
+        setCurrentPage('detail');
+      })
+      .catch(console.error);
   };
   const handlePlaceOrder = (order: Order) => {
     setActiveOrder(order);

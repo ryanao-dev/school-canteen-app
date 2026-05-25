@@ -108,7 +108,7 @@ export function OrderTrackingPage({
           <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
             <span className="font-bold text-gray-900">Total Paid</span>
             <span className="text-xl font-bold text-amber-600">
-              £{(order.total + 0.5).toFixed(2)}
+              £{order.total.toFixed(2)}
             </span>
           </div>
         </div>
