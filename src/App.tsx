@@ -25,7 +25,7 @@ export function App() {
   const handlePlaceOrder = (order: Order) => {
     setActiveOrder(order);
     cart.clearCart();
-    setCurrentPage('tracking');
+    setCurrentPage('cart');
   };
   const renderPage = () => {
     switch (currentPage) {
