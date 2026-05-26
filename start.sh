@@ -20,11 +20,11 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DIR"
 
 echo "[1/2] Installing app dependencies..."
-npm install || { echo "ERROR: Failed to install app dependencies."; exit 1; }
+npm install --registry https://registry.npmjs.org/ || { echo "ERROR: Failed to install app dependencies."; exit 1; }
 
 echo ""
 echo "[2/2] Installing server dependencies..."
-cd server && npm install || { echo "ERROR: Failed to install server dependencies."; exit 1; }
+cd server && npm install --registry https://registry.npmjs.org/ || { echo "ERROR: Failed to install server dependencies."; exit 1; }
 cd "$DIR"
 
 echo ""

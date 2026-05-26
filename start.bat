@@ -18,7 +18,7 @@ echo.
 
 :: Install frontend dependencies
 echo [1/2] Installing app dependencies...
-call npm install
+call npm install --registry https://registry.npmjs.org/
 if %errorlevel% neq 0 (
     echo ERROR: Failed to install app dependencies.
     pause
@@ -29,7 +29,7 @@ if %errorlevel% neq 0 (
 echo.
 echo [2/2] Installing server dependencies...
 cd server
-call npm install
+call npm install --registry https://registry.npmjs.org/
 if %errorlevel% neq 0 (
     echo ERROR: Failed to install server dependencies.
     pause
